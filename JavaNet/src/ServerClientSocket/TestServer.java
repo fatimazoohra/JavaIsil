@@ -8,11 +8,12 @@ import java.net.Socket;
 public class TestServer {
 
 	public static void main(String[] args) {
+		System.out.println("===========Server=============");
 		Socket clientSocket = null;
 		ServerSocket serveurSoc = null;
 		while(true) {
 			try {
-				serveurSoc = new ServerSocket(1234);
+				serveurSoc = new ServerSocket(3016);
 				clientSocket = serveurSoc.accept();
 				System.out.println("un client s'est connecté");	
 				
