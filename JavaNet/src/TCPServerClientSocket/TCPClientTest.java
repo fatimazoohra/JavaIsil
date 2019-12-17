@@ -1,4 +1,4 @@
-package ServerClientSocket;
+package TCPServerClientSocket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,13 +14,13 @@ public class TCPClientTest {
 		Socket clientSocket =null;
 		String serverHostName = "localhost";
 		int port = 3016;
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<3;i++) {
 			try {
 				clientSocket = new Socket(serverHostName,port);
 				//clientSocket = new Socket("192.168.1.10",1234);
 				System.out.println("connected to the server");
 			}catch(IOException e) {
-				System.out.println("client: impossible douvrir la socket");
+				System.out.println("client: impossible d'ouvrir la socket");
 			}
 			long t = System.currentTimeMillis();
 			PrintStream printStream = new PrintStream(clientSocket.getOutputStream());

@@ -5,17 +5,18 @@ import java.net.UnknownHostException;
 
 public class PortsOuverts {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
+		System.out.println("liste des ports ouverts: ");
 		Socket soc = null;
 			//InetAddress Adresse = InetAddress.getByName("localhost");
-			for(int i=1;i<65535; i++) {
+			for(int i=1000; i <= 2000; i++) {
 				try {
 					soc = new Socket("127.0.0.1",i);
 					System.out.println(i);
 				}catch(UnknownHostException e) {e.printStackTrace();}
 				catch(IOException e) {}	
 				finally {
-					if(soc!=null) {
+					if(soc != null) {
 						try {
 							soc.close();
 						}catch(IOException e) {
@@ -25,7 +26,7 @@ public class PortsOuverts {
 					}
 				}
 			}
-			//System.out.println("all : "+InetAddress.getAllByName("127.0.0.1"));
+			//System.out.println("all : "+InetAddress.getAllByName("localhost"));
 	
 	}
 

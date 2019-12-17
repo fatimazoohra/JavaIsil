@@ -16,7 +16,7 @@ public class TestClient {
 
 			//soc = new Socket("127.0.0.1",i);
 			//InetAddress Adresse = InetAddress.getByName("192.168.43.73");
-			clientSoc = new Socket("192.168.1.200",3017);
+			clientSoc = new Socket("localhost",1234);
 			System.out.println("en ecoute");
 			String message = "b16 \n\n";
 			PrintStream printStream = new PrintStream(clientSoc.getOutputStream());

@@ -13,7 +13,7 @@ public class TestServer {
 		ServerSocket serveurSoc = null;
 		while(true) {
 			try {
-				serveurSoc = new ServerSocket(3016);
+				serveurSoc = new ServerSocket(1234);
 				clientSocket = serveurSoc.accept();
 				System.out.println("un client s'est connecté");	
 				

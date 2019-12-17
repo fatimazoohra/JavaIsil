@@ -1,4 +1,5 @@
-package ServerClientSocket;
+package TCPServerClientSocket;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,7 +7,7 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerWorker {
+public class TcpServerTest {
 
 	public static void main(String[] args) {
 		System.out.println("serveur");
@@ -21,10 +22,15 @@ public class ServerWorker {
 		while(true) {
 			Socket clientSocket = null;
 			try {
-				/*Avec les Thread */
-				
+				System.out.println("j'attend un client");
 				clientSocket = serverSocket.accept();
-				(new Thread(new ClientWorker(clientSocket))).start();
+				processClientRequest(clientSocket);
+				//clientSocket.close();
+				/*Avec les Thread */
+				//clientSocket = serverSocket.accept();
+				//int nbr++;
+				//System.out.println("client :"+nbr);
+				//(new Thread(new ClientWorker(clientSocket))).start();
 			}catch(IOException ex){
 				System.out.println("serveur:can not accept the client request, exit program");
 			}
@@ -45,11 +51,12 @@ public class ServerWorker {
 			Thread.sleep(1100);
 			String messageSend = "serveur:"+message+"\n";
 			printStream.println(messageSend );
+			//printStream.println("yeeeeeeeeeeeeeeh" );
 			printStream.close();
+		
 		}catch(IOException ex){
 			System.out.println("Serveur : probable d'nvoi du message");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
